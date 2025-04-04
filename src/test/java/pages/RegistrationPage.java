@@ -17,31 +17,58 @@ public class RegistrationPage {
 
 
 
-    public void openPage() {
+    public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+
+        return this;
     }
 
-    public void setFirstName(String value) {
+    public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
+
+        return this;
+
     }
 
-    public void setLastName(String value) {
+    public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
+
+        return this;
+
     }
 
-    public void setUserEmail(String value) {
+    public RegistrationPage setUserEmail(String value) {
         userEmailInput.setValue(value);
+
+        return this;
+
     }
 
-    public void setGender(String value) {
+    public RegistrationPage setGender(String value) {
         genterWrapper.$(byText(value)).click();
+
+        return this;
+
     }
 
-    public void setUserNumber(String value) {
+    public RegistrationPage setUserNumber(String value) {
         userNumberInput.setValue(value);
+
+        return this;
+
+    }
+
+    public RegistrationPage setDate(String day, String month, String year) {
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("January");
+        $(".react-datepicker__year-select").selectOption("1995");
+        $(".react-datepicker__day--021").click();
+
+        return this;
+
     }
 
 
@@ -50,9 +77,8 @@ public class RegistrationPage {
 
 
 
-    public void checkValue(String attribute, String value) {
-        $$("tbody tr").findBy(text("Student Name")).$$("td").get(1).shouldHave(text("Anna Popova"));
-    }
+
+
 
 
 }

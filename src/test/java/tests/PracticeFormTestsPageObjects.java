@@ -13,33 +13,22 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTestsPageObjects extends TestBase {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.holdBrowserOpen = true;
-
-    }
 
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void fillPracticeForm() {
 
-        registrationPage.openPage();
-        registrationPage.setFirstName("Anna");
-        registrationPage.setLastName("Popova");
-        registrationPage.setUserEmail("anna@popova.com");
-        registrationPage.setGender("Female");
+        registrationPage.openPage()
+                .setFirstName("Anna")
+                .setLastName("Popova")
+                .setUserEmail("anna@popova.com")
+                .setGender("Female");
 
 
         registrationPage.setUserNumber("9123454562");
         //date
-        $("#dateOfBirthInput").click(); // Открываем календарь
-        $(".react-datepicker__month-select").selectOption("January"); // Выбираем месяц
-        $(".react-datepicker__year-select").selectOption("1995"); // Выбираем год
-        $(".react-datepicker__day--021").click(); // Кликаем по числу 21
+
         //
         //Subjects
         $("#subjectsInput").click();
