@@ -1,6 +1,4 @@
-package tests;
-
-import org.junit.jupiter.api.Test;
+package CssAndXpathLocators;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;

@@ -1,4 +1,4 @@
-package tests;
+package JUnit5;
 
 import org.junit.jupiter.api.*;
 
