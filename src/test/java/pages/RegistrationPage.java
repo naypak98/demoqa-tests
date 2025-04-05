@@ -24,7 +24,8 @@ public class RegistrationPage {
             addressInput =  $("#currentAddress"),
             stateInput = $("#state"),
             cityInput = $("#city"),
-            submitButton = $("#submit");
+            submitButton = $("#submit"),
+            modalDialog =  $(".modal-dialog");
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -144,6 +145,10 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage modalDialogDidntAppear() {
+        modalDialog.shouldNot(appear);
+        return this;
+    }
 
 
 }
