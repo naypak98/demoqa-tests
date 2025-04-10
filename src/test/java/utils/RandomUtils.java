@@ -1,6 +1,9 @@
 package utils;
 
 import java.security.SecureRandom;
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
@@ -54,4 +57,43 @@ public class RandomUtils {
 
         return array[index];
     }
+
+    public static String getRandomMonth() {
+        int monthNumber = getRandomInt(1, 12);
+        Month month = Month.of(monthNumber);
+        return month.getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+
+    }
+
+    public static  String getRandomHobby() {
+        String[] hobbies = {"Sports", "Reading", "Music"};
+        return getRandomItemFromArray(hobbies);
+    }
+
+    public static  String getRandomSubject() {
+        String[] hobbies = {"Math", "English", "Arts", "Accounting", "Biology", "Physics"};
+        return getRandomItemFromArray(hobbies);
+    }
+
+    public static String getRandomState() {
+        String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
+        return getRandomItemFromArray(states);
+    }
+
+    public static String getRandomCity(String state) {
+        return switch (state) {
+            case "NCR" -> getRandomItemFromArray(new String[]{"Delhi", "Gurgaon", "Noida"});
+            case "Uttar Pradesh" -> getRandomItemFromArray(new String[]{"Agra", "Lucknow", "Merrut"});
+            case "Haryana" -> getRandomItemFromArray(new String[]{"Karnal", "Panipat"});
+            case "Rajasthan" -> getRandomItemFromArray(new String[]{"Jaipur", "Jaiselmer"});
+            default -> "City";
+        };
+    }
+    public static String getSimpleRandomPhone() {
+        return String.format("%s%s%s%s%s", getRandomInt(1, 9), getRandomInt(111, 999),
+                getRandomInt(111, 999), getRandomInt(11, 99), getRandomInt(1, 9));
+    }
+
+
+
 }
